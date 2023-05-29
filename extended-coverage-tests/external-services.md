@@ -1,0 +1,14 @@
+External services
+  - WebHooks
+    - [ ] Add a new WebHook (use http://requestb.in/), push to the repository and check for a response
+    - [ ] Add another WebHook (use http://requestb.in/), push to the repository and check for responses
+  - Service Hooks
+    - [ ] Add an email service hook, push a commit and check if you get a notification email (https://help.github.com/articles/receiving-email-notifications-for-pushes-to-a-repository/)
+  - Email notifications
+    - Repositories
+      - [ ] Transfer a repository from one user to the other and check if you get a notification email
+      - [ ] Add a new collaborator to a repository and check if he/she get a notification email
+      - [ ] Add a new deploy key to a repository and check if you get a notification email
+      - [ ] Disable access to a repo
+    - Administration
+      - [ ] Invite a new user and check if the user gets a notification email

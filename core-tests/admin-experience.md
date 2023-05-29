@@ -1,0 +1,428 @@
+This document is adapted from [GHES Admin-experience test plan](https://github.com/github/pe-releases/blob/master/qa/ghes-manifests/admin-experience/admin-experience.md).
+# Admin experience
+  - Stafftools (`http(s)://[hostname]/stafftools`)
+      - *Explore* (`/stafftools/explore`)
+        - [ ] A *Trending query cache* calculation job can be queued up.
+      - *File Storage* (`/stafftools/storage`)
+        - *Find object*
+          - [ ] An **Object ID (OID)** shown in the `/stafftools/repositories/[owner]/[repo]/large_files` page, can be found.
+        - *Repository LFS management*
+          - For repos using Git LFS, confirm:
+            - [ ] The *View stats* links by every repo, go to the correct `/stafftools/repositories/[owner]/[repo]/large_files` page.
+          - For repos not using Git LFS, confirm:
+            - [ ] The message  *We couldn’t find any LFS objects in any repository* is shown.
+      - *Admin center*
+        - *Audit log* (`/enterprises/github/settings/audit-log`)
+          - [ ] Ensure the map shows sane geographical logins.
+          - [ ] Use the various filters to change results.
+      - *Enterprise* (`/enterprises/[enterpriseName]`)
+        - [ ] Clicking on any org listed will take you to `http(s)://[hostname]/[org_name]`.
+      - *Repositories* (`/stafftools/repositories`)
+        - [ ] All repos on the instance are listed with their name, user, size and date/time when created.
+      - *Invite user* (`/stafftools/users/invite`)
+        - [ ] Invite a new user and confirm that the invite email is received.
+      - *All users* (`/stafftools/users`)
+        - [ ] All users are listed, they can be sorted alphanumerically or by newest/oldest.
+      - *Site admins* (`/stafftools/users/site_admins`)
+        - [ ] All site admins are listed, they can be sorted alphanumerically or by newest/oldest.
+        - [ ] The last registered IP for an admin is shown by its username/email.
+      - *Dormant users* (`/stafftools/users/dormant`)
+        - When there are no dormant users:
+          - [ ] *No accounts found* message is displayed.
+          - [ ] The *Suspend all* button is not present.
+        - When there are dormant users:
+          - [ ] All dormant users are listed.
+          - [ ] You can click on a dormant user's username to view their stafftools page `/stafftools/users/[username]`.
+          - [ ] The *Last active* date is shown by the user's username.
+          - [ ] The *Suspend all* button is displayed.
+      - *Suspended users* (`/stafftools/users/suspended`)
+        - When there aren't suspended users:
+          - [ ] *No accounts found* message is displayed.
+        - When there are suspended users:
+          - [ ] All suspended users are listed, they can be sorted alphanumerically or by newest/oldest.
+          - [ ] You can click on a suspended user's username to view their stafftools page `/stafftools/users/[username]`.
+    - Specific user (`http(s)://[hostname]/stafftools/users/[username]`)
+      - *Admin*
+        - *Overview* (`/stafftools/users/[username]/overview`)
+          - *Created*
+            - [ ] Shows the timestamp for when the account was created.
+          - *Last active*
+            - [ ] Shows the last activity of the account.
+            - [ ] Click on *Check active status* to view the activity state at `http(s)://[hostname]/stafftools/users/[username]/activity`
+          - *Public profile*
+            - [ ] Click on *View profile* to view the user's public profile.
+          - *Name*
+            - [ ] Shows the user's name, if one has been added to their profile.
+          - *Gists*
+            - [ ] Click on *View gists* to view the user's gists.
+          - *Disk use*
+            - [ ] Shows the amount of disk space being used.
+          - *Using GitHub Mac*, *Using GitHub Win* and *Using GitHub Desktop*
+            - [ ] Show ticks if the apps have been used.
+          - *Activity feed*
+            - [ ] Click on *Clear public activity* clears public events from the user’s feed completely. You're sent back to `http(s)://[hostname]/stafftools/users/[username]`.
+            - [ ] Click on *Clear all activity* clears public and private events from the user’s feed completely. You're sent back to `http(s)://[hostname]/stafftools/users/[username]`.
+          - *Staff notes*
+            - [ ] Click on *Add note* to add a staff note.
+          - *Impersonate*
+            - [ ] Click on *Sign in to GitHub as [username]* to sign in as a regular end-user.
+            - [ ] Click on *Return to your mundane life as [yourself]* to go back to your very own session. You're sent back to  `http(s)://[hostname]/stafftools/users/[impersonated user]`.
+            - [ ] Verify *Sign in to GitHub as [username]* is not available to sign in as an admin. The message *Sorry, you can’t impersonate a site administrator’s account.* is shown.
+        - *Admin* (`/stafftools/users/[username]/admin`)
+          - *Contributions*
+            - *Rebuild commit contributions data*
+              - [ ] Click on *Rebuild* to update the user’s contribution calendar with missing commits.
+            - *Flag as large-scale contributor*
+              - [ ] Click on *Flag contributor* to flag a user to only show contributions from public repositories to prevent timeouts.
+            - *Flagged Contribution Types*
+              - [ ] Select different contribution types to ignore to prevent timeouts, click *Update*.
+            - *Danger zone*
+              - *Rename account*
+                - [ ] Change the name of an user account, click *Change name*.
+                - [ ] Trying to hit the user's profile using its old name fails.
+              - *Priviledged access*
+                - [ ] Click the *enterprise administrators* link takes you to `/enterprises/[enterpriseName]/admins`.
+                - [ ] Click *Add owner* and promote a regular user to site admin.
+                - [ ] While on `/enterprises/[enterpriseName]/admins`, click on the gear icon by the recently promoted site admin's username, select *Remove owner* and demote it to a regular user. Modal will appear asking for confirmation.
+              - *Account suspension*  
+                - [ ] Click *Suspend*, log a reason within the modal and suspend the user account.
+                - [ ] Verify that as a site admin, you can still view the user's profile and repos.
+                - [ ] Unsuspend the recently suspended user account.
+                - [ ] Verify that as a site admin, you cannot suspend another site admin account.
+              - *Delete account*
+                - [ ] Click on *Delete this account* to delete an user account. Modal will appear asking for confirmation.
+                - [ ] Ensure that as a site admin, the user's profile and repositories are not reachable anymore.
+            - *Repository default settings*
+              - [ ] Select *Block* from the dropdown to block force pushes made to this user’s repositories.
+              - [ ] Make sure force pushes are indeed blocked.
+              - [ ] Go back to the default configuration and verify the behavior is the expected.
+            - *Git LFS*
+              - [ ] While enabled, make sure Git LFS objects can be pushed to this user's repositories.
+              - [ ] Click *Disable* to disable Git LFS for all of this user’s repositories.
+              - [ ] Verify Git LFS objects cannot be pushed to this user's repositories.
+            - *Git SSH access*
+              - [ ] While enabled, make sure SSH access for the the current user works by pulling from and pushing to a cloned repository.
+              - [ ] Click *Disable* to disable SSH access for all of this user’s repositories.
+              - [ ] Attempting to pull from and pushing to the previously cloned repository via the SSH protocol fails.
+              - [ ] Ensure that the *Use SSH* option does not appear in the *Clone or download* dropdown.
+            - *Legal Hold*
+              - [ ] Click on *Place legal hold* to prevent repositories owned by a user or organization from being purged after deletion.
+        - *Avatars* (`/stafftools/users/[username]/avatars`)
+          - [ ] Click on the *Avatar URL* link. The image is shown.
+          - [ ] Click the *Revert to Gravatar* button. **NOTE**: For the button to appear the user has to have a profile picture attached to his/her account.
+          - [ ] Click the *Purge cache* button and ensure that it's purged.
+          - [ ] Click the *Promote* button to promote the old custom avatar that was reverted in previous steps.
+          - [ ] Click the *Metadata* button to see the object's metadata.
+        - *Feature & Beta Enrollments* (`/stafftools/users/[username]/feature_enrollments`)
+          - *Available features*
+            - [ ] See if there're any available features.
+          - **NOTE**: *Beta features* has been deprecated.
+        - *Followed users* (`/stafftools/users/[username]/user_interactions`)
+          - [ ] Lists any followed users being their name a link to his/her stafftools page.
+        - *Search* (`/stafftools/users/[username]/search`)
+          - *Actions*
+            - *Reindex*
+              - [ ] Click the *Reindex user* button to recalculate user's primary language, and reindex user for global search.
+          - *Search record*
+            - [ ] Shows valid data for this user.
+      - *Security*
+        - *Security* (`/stafftools/users/[username]/security`)
+          - *Audit log*
+            - [ ] Click the *Search logs* link to open a user query in `http(s)://[hostname]/stafftools/audit_log` for actions involving the user.
+          - *Two-factor authentication*
+            - Under a valid non-admin username
+              - [ ] Make sure 2FA is enabled, otherwise, go to `/settings/security` and click the *Enable two-factor authentication* button to enable 2FA.
+              - [ ] Try to log in and verify 2FA is active and does work.
+              - [ ] Go back to `/stafftools/users/ghe-admin/security` and click *Disable 2FA for ghe-admin* to disable two-factor authentication for the account.
+              - [ ] Log out and try to log in again, verify 2FA is not active anymore.
+          - *Login lockout*
+            - [ ] Attempt to log in with the same valid non-admin username but an invalid password 5 times, or until locked out. **NOTE**: for the log in mechanism to work as expected you'll need to provide a distinct wrong password; each time, or, rotate between two.
+            - [ ] As an admin, remove the lockout to the previously locked out account and ensure that the user is now able to make another attempt.
+          - *Password*
+            - *Randomize password*
+              - [ ] Click the *Randomize password* to randomize an user's password. **NOTE**: This will basically remove the current password for any given user, requiring him/her to create a new one. The user will receive a confirmation email stating his/her password has changed and will provide a link to follow in order to regain access to the appliance.
+              - [ ] Verify the user is required to reset its password to regain access.
+        - *SSH keys* (`/stafftools/users/[username]/keys`)
+          - [ ] SSH Keys are listed with any (or no) recent activity.
+        - *GPG keys* (`/stafftools/users/[username]/gpg_keys`)
+          - *GPG keys*
+            - [ ] GPG Keys are listed with any (or no) recent activity.
+            - [ ] Click on any key name to see some basic information (when it was created, expiration date, etc) and the corresponging audit log.
+            - [ ] Click the *View database record*, valid data for this object is shown.
+          - *Audit log*
+            - [ ] If any, general audit log entries are shown. Searching opens a query in `http(s)://[hostname]/stafftools/audit_log`.
+        - *Owned applications* (`/stafftools/users/[username]/applications/developers`)
+          - [ ] Lists any owned applications.
+        - *GitHub Apps* (`/stafftools/users/[username]/applications/github`)
+          - *Authorized GitHub Apps*
+            - [ ] Lists any authorized GitHub app along with its *Last accessed* date.
+        - *Authorized applications* (`/stafftools/users/[username]/applications`)
+          - [ ] Lists any authorized applications.
+        - *Personal Access Tokens* (`/stafftools/users/[username]/oauth_tokens`)
+          - [ ] Lists any personal access tokens along with its *Created* date.
+          - [ ] Click on any personal access token to see its details.
+          - *OAuth Access Token Details*
+            - [ ] Basic information is shown: description, last 8 digits of the token and when it was created.
+            - When clicking the link in the description:
+              - Full information is displayed: type, last access, scopes, access level, etc.
+              - *Compare*
+                - [ ] Compare a compromized token to the current one to see if they match.
+              - *Revoke*
+                - [ ] Click the *Revoke* button to revoke the current token. A modal will appear asking for confirmation.
+                - [ ] Verify the token is not usable anymore.
+        - *Owned GitHub Apps* (`/stafftools/users/[username]/apps`)
+          - [ ] Lists any owned GitHub apps.
+        - *Installed GitHub Apps* (`/stafftools/users/[username]/installations`)
+          - [ ] Lists any installed GitHub apps.
+      - *Content*
+        - *Private repositories* (`/stafftools/users/[username]/repositories`)
+          - *Owned private repositories*
+            - [ ] Lists any owned private repositories along with their size.
+          - *Private forks*
+            - [ ] Lists any private forks for the user along with their size.
+        - *Public repositories* (`/stafftools/users/[username]/public_repos`)
+          - [ ] Lists any public repositories for the user along with their size.
+        - *Disabled repositories* (`/stafftools/users/[username]/disabled_repos`)
+          - [ ] Lists any disabled repositories for the user.
+        - *Deleted repositories* (`/stafftools/users/[username]/purgatory`)
+          - [ ] Lists any deleted repositories for the user along with buttons to *Restore* and/or *Purge*.
+          - [ ] Click the *Restore* button to recover a deleted repository from the user's purgatory.
+          - [ ] Click the *Purge* button to completely remove a the repository from the appliance.
+        - *Public gists* (`/stafftools/users/[username]/gists`)
+          - [ ] Lists any public gists for the user with links to their metadata.
+        - *Archived gists* (`/stafftools/users/[username]/gists/archived`)
+          - [ ] Lists any archived (deleted) gists for the user with links to their metadata.
+      - *Collaboration*
+        - *Organizations* (`/stafftools/users/[username]/organization_memberships`)
+          - *Audit log*
+            - [ ] An audit log of org-related activities for the user is displayed.
+          - *Organization affiliations*
+            - [ ] Organization affiliations that an user has, are listed along with their teams, permissions and the option to remove the user's affiliation.
+            - [ ] Click on the org link takes you to `/stafftools/users/[org_name]`.
+            - [ ] Click on the team(s) link for an organization affiliation takes you to `/stafftools/users/[username]/organization_memberships/[org_name]`.
+            - [ ] Click the *Remove* button to remove any organization affiliation.
+          - *Organization security*
+            - [ ] Organizations in which an user has security priviledges are listed along with buttons to *Enable 2FA requirement* (if using an auth mode that supports 2FA). Otherwise a *2FA requirement cannot be enabled. No admins have 2FA enabled* message will be displayed.
+            - [ ] Click the *Enable 2FA requirement* button displays a confirmation dialog.
+            - [ ] After confirming, 2FA will be enabled and users without 2FA enabled will be removed from the organization affiliation.
+        - *Collaborating repositories* (`/stafftools/users/[username]/collab_repos`)
+          - [ ] Lists any collaborating repositories for the user.
+        - *Watched & Ignored repositories* (`/stafftools/users/[username]/watching`)
+          - *Ignoring*
+            - [ ] List any ignored repositories for the user.
+          - *Watching*
+            - [ ] Lists any watched repositories for the user along with the starting date in which the user started to watch them.
+        - *Starred repositories* (`/stafftools/users/[username]/starred_repos`)
+          - [ ] Lists any starred repositories for the user along with their size.
+        - *Contributing repositories* (`/stafftools/users/[username]/contributing_repos`)
+          - [ ] Lists any repositories the user is contributing to along with the number of commits, pulls and issues associated.
+        - *Recent comments* (`/stafftools/users/[username]/comments`)
+          - [ ] Lists any comments made on gists and public repositories (issues and pull requests) for the user.
+          - [ ] Clicking on the link for a gist takes you to `/stafftools/users/[username]/gists/[gist_number]`.
+          - [ ] Click the *Minimize* button to minimize the comment as either *Off Topic*, *Outdated* or *Resolved*.
+          - [ ] The button now specifies what the reason for minimizing it was.
+          - [ ] Click the button to undo minimize.
+          - [ ] Clicking on the link for an issue takes you to `/stafftools/repositories/[username]/[repo_name]/issues/[issue_numer]`.
+          - [ ] Clicking on the link for a pull request takes you to `/stafftools/repositories/[username]/[repo_name]/pull_requests/[pull_request_number]`.
+    - Specific repo (`http(s)://[hostname]/stafftools/repositories/[owner]/[repo_name]`)
+      - *Admin*
+        - *Admin* (`/stafftools/repositories/[owner]/[repo_name]/admin`)
+          - *Rebuild commit contributions data*
+            - [ ] Click on *Rebuild* to update the repository's contribution calendar with missing commits.
+          - *Single Repository Lock*
+            - [ ] Click the *Lock* button to lock the current repo.
+            - [ ] Ensure the *Write access to this repository has been disabled while it is being migrated* message is displayed when you attempt to view it.
+            - [ ] Go back to `/stafftools/repositories/[owner]/[repo_name]/admin` and click the *Unlock* button to unlock the repository.
+            - [ ] Ensure the repository is unlocked and accessible.
+          - *Push and Pull*
+            - *Force pushes*
+              - [ ] Push with a valid user account which is not the owner of the repository.
+              - [ ] Ensure that force pushing to a repository after blocking force pushes fails.
+              - [ ] Go back to the default configuration and verify the behavior is the expected.
+            - *Maximum Object Size*
+              - [ ] Try out the default configuration and verify the behavior is the expected.
+              - [ ] Click the *Default (100MB)* button and select another option.
+              - [ ] Try to push an object bigger that the size you just selected and confirm it's not possible.
+            - *Warn Disk Quota* - **NOTE**: too big of a number to test at this time.
+            - *Lock Disk Quota* - **NOTE**: too big of a number to test at this time.
+          - *Git LFS*
+            - *Toggle Git LFS access*
+              - [ ] While enabled, make sure Git LFS objects can be pushed to this user's repositories.
+              - [ ] Click the *Disable* button to disable Git LFS.
+              - [ ] Verify Git LFS objects cannot be pushed to the current repository.
+          - *Git SSH access*
+            - [ ] While enabled, make sure SSH access for the user works by pulling from and pushing to the current repository.
+            - [ ] Attempting to pull from and pushing to the current repository via the SSH protocol fails.
+            - [ ] Ensure that the *Use SSH* option does not appear in the *Clone or download* dropdown for the current repository.
+          - *Repository license*
+            - [ ] If the *no detected license file* message is displayed, upload one and proceed to click the *Redetect license* button to queue a license detection job.
+            - [ ] If existent, just click the *Redetect license* button to queue a license detection job.
+          - *Fix duplicate labels*
+            - [ ] List any duplicated label for the current repository.
+            - [ ] If the *No duplicated labels found* message is displayed, duplicate some labels and click the *Fix* button to remediate the problem.
+            - [ ] If any duplicated labels exist, just click the *Fix* button to remediate the problem.
+          - *Danger zone*
+            - *Archive repository*
+              - [ ] Click the *Archive* button to archive the current repository and mark it as read-only.
+              - [ ] Verify the repository is now read-only.
+              - [ ] Restore the repository.
+              - [ ] Verify the repository contents can be updated via the web UI.
+            - *Disable repository*
+              - [ ] Click the *Disable access* button to disable access to the current repository and all its forks.
+              - [ ] Click the *Yes. Disable the repository* button and ensure the email is received.
+              - [ ] Verify the repositories are not accesible anymore.
+            - *Delete repository*
+              - [ ] Click the *Delete this repository* button to delete the current repository.
+              - [ ] Verify the repository has been removed and is not accessible.
+        - *Search* (`/stafftools/repositories/[owner]/[repo_name]/search`)
+          - *Search Index Information*
+            - *Repository Index*
+              - [ ] Click the *Reindex Repository* button to reindex the current repository.
+            - *Code Search Index*
+              - [ ] Click the *Reindex Code* button to reindex the code for the current repository.
+              - [ ] If working with a fork, click the *Enable code search* button to make the unique code in this fork searchable.
+            - *Commits Index*
+              - [ ] Click the *Reindex Commits* button to reindex the commits for the current repository. **NOTE**: commit indexing is not supported for forks.
+            - *Issues Index*
+              - [ ] Click the *Reindex Issues* button to reindex the issues for the current repository. **NOTE**: issues is disabled by default for forks.
+            - *Pull Requests Index*
+              - [ ] Click the *Reindex Pull Requests* button to reindex the pull requests for the current repository.
+            - *Projects Index*
+              - [ ] Click the *Reindex Projects* button to reindex the projects for the current repository.
+            - *Wiki Index*
+              - [ ] Click the *Reindex Wiki* button to reindex the wiki for the current repository.
+        - *Languages* (`/stafftools/repositories/[owner]/[repo_name]/languages`)
+          - *Language breakdown*
+            - [ ] List any languages used for the current repository along with their size.  
+            - [ ] Click *Reanalyze languages* to queue a background job to reanalyze the repository's languages. **NOTE**: if there are changes in the languages you should see an update in the list from the previous step.
+          - *Per-file breakdown*
+            - [ ] Click the *View* link to generate and show a per-file breakdown for the current repository.
+            - [ ] Verify the list appears and shows accurate data.
+        - *Database* (`/stafftools/repositories/[owner]/[repo_name]/database`)
+          - *Database record*
+            - [ ] Shows valid data for this repository.
+        - *Topics*
+          - [ ] Lists any topics users with valid accounts have either applied or declined for the current repository.
+      - *Security*
+        - *Security* (`/stafftools/repositories/[owner]/[repo_name]/security`)
+          - *Audit log*
+            - [ ] Click the *Search logs* link to open a query in `/stafftools/audit_log`.
+          - *Repository Settings*
+            - [ ] Forking for the current repository is on by default, cannot be restricted.
+        - *Collaborators* (`/stafftools/repositories/[owner]/[repo_name]/collaborators`)
+          - [ ] Lists any collaborators for the current repository along with links to their stafftools page `/stafftools/users/[username]`.
+          - *Audit log*
+            - [ ] Lists any collaborators events for the current repository along with links that open queries in `/stafftools/audit_log`.
+        - *Webhooks & Services* (`/stafftools/[owner]/[repo_name]/hooks`)
+          - *Webhooks*
+            - [ ] List any webhooks for the current repository.
+            - [ ] Add a webhook to the repo (via `http(s)://[hostname]/[owner]/[repo_name]/settings/hooks`) and verify it's listed.
+        - *Deploy Keys* (`/stafftools/repositories/[owner]/[repo_name]/deploy_keys`)
+          - [ ] Lists any deploy keys for the current repository.
+        - *Protected branches* (`/stafftools/repositories/[owner]/[repo_name]/protected_branches`)
+          - [ ] Lists any protected branches for the current repository.
+          - [ ] The branch name is listed along with the number of required status checks and whether it's enforced for admins.
+          - [ ] Click the *Search audit log* link to search for branch protection events for the current repository. Opens a query in `/stafftools/audit_log`.
+        - *Push Log* (`/stafftools/repositories/[owner]/[repo_name]/reflog`)
+          - *Overview*
+            - [ ] Displays the last push to the DB as a timestamp.
+          - *Push log*
+            - [ ] List all pushes for the current repository along with links to the actual changes.
+      - *Collaboration*
+        - *Network* (`/stafftools/repositories/[owner]/[repo_name]/network`)
+          - *Network overview*
+            - [ ] Click the *View tree* link under *Network size* to see the network tree for the current network.
+            - [ ] The number of children is listed, click on the link under *Children* to see them.
+            - *Rebuild graph*
+              - [ ] Click the *Rebuild graph* button to queue a graph rebuild job for the current network.
+            - *Invalidate Git cache*
+              - [ ] Click the *Invalidate Git cache* to invalidate the Git cache for the current network.
+          - *Network admin*
+            - *Schedule network maintenance*
+              - [ ] Click the *Mark as broken* button to set the status of the current network as broken.
+              - [ ] Verify the button is disabled.
+              - [ ] Click the *Schedule* button to run a maintenance job for the current network.
+          - *Network structure*
+            - *Root repository*
+              - On a root repository
+                - [ ] The *Make root* button is disabled.
+              - Not on a root repository
+                - [ ] Click the *Make root* button to make a forked repository the root of its network. A modal appears asking for confirmation.
+            - *Change Parent*
+              - [ ] Click the *Change parent* button to make the current repository a fork of another repository within its current network.
+            - *Detach from network*
+              - [ ] Click the *Detach* button to detach the current repository from its network. A modal appears asking for confirmation.
+              - [ ] The repo gets detached and becomes the sole repository in a new network.
+              - [ ] Its own fork(s) get reparented within their current network.
+            - *Extract from network*
+              - [ ] Click the *Extract* button to extract the current repository from its network. A modal appears asking for confirmation.
+            - *Reattach*
+              - [ ] Click *Reattach* to reattach a the current repository to its previous parent network. A modal appears asking for confirmation.
+        - *Issues & Pull Requests* (`/stafftools/repositories/[owner]/[repo_name]/issues`)
+          - [ ] Lists any issue/pull request for the current repository.
+          - [ ] Verify the links are displayed with open/close icons and can be clicked on.
+          - [ ] View an issue/pull request.
+          - [ ] Lock an issue. Modal appears asking for a reason and confirmation.
+          - [ ] Verify just collaborators are able to keep posting to the issue/pull request.
+          - [ ] Unlock an issue/pull request.
+          - [ ] Verify everyone is able to post to the issue/pull request.
+          - [ ] Delete an issue/pull request.
+        - *Issue files* (`/stafftools/repositories/[owner]/[repo_name]/repository_files`)
+          - [ ] Lists any files which were attached to issue comments for the current repository. **NOTE**: doesn't work with uploaded images.
+        - *Projects* (`/stafftools/repositories/[owner]/[repo_name]/projects`)
+          - *Projects owned by*
+            - [ ] Lists any projects owned by the current user for the current repository.
+          - *Archived Projects owned by*
+            - [ ] Lists any archived projects owned by the current user for the current repository.
+        - *Watchers* (`/stafftools/repositories/[owner]/[repo_name]/watchers`)
+          - [ ] Lists any users that watch the current repository along with their notification preferences and a link to their stafftools page `/stafftools/users/[username]`.
+        - *Repository Notifications* (`/stafftools/repositories/[owner]/[repo_name]/notification_settings`)
+          - *Repository Notification Settings*
+            - [ ] Lists any emails that are subscribed to the current repository.
+          - *Audit log*
+            - [ ] Lists entries for repository notification settings as hook events along with links to the user stafftools page `/stafftools/users/[username]`.
+        - *Notifications* (`/stafftools/repositories/[owner]/[repo_name]/notifications`)
+          - [ ] Lists any notifications for the current repository.
+          - [ ] Filter the list by the different handlers: *all*, *web* and *email*.
+          - [ ] Verify that *delivered to:* notifications are listed with user, handler type, timestamp and type (*because:*).
+        - *Events* (`/stafftools/repositories/[owner]/[repo_name]/events`)
+          - *Repository events*
+            - [ ] Lists any feed events associated with the current repository along with the user's username who triggered it and timestamp.
+          - *Danger Zone*
+            - [ ] Click the *Purge events* button to purge all events for the current repository. Modal appears asking for confirmation.
+      - *Storage*
+        - *Disk* (`/stafftools/repositories/[owner]/[repo_name]/disk`)
+          - *Storage information*
+            - [ ] Displays accurate data for *Storage Host* and *Storage Path*.
+          - *Repository health*
+            - [ ] Click the *Check repository* button to queue up a repo consistency check job.
+        - *Pages* (`/stafftools/repositories/[owner]/[repo_name]/pages`)
+          - *Pages*
+            - Displays the pages site type, branch and source folder.
+          - *Deployment for*
+            - [ ] Displays pages information: *Pages servers*, *Path on server*, *Most recent build* and *Published URL*.
+            - [ ] Click the *Delete generated pages* to delete the pages for the current repository. **NOTE**: the information mentioned in the previous bullet should disappear.
+            - [ ] Click the *Rebuild* button to queue a rebuild pages job. **NOTE**: the information that just dissapeared in the previous bullet should re-appear.
+        - *Releases* (`/stafftools/repositories/[owner]/[repo_name]/releases`)
+          - *Summary*
+            - [ ] Displays a summary of all *Binary Assets* for the current repository.
+          - *Releases*
+            - [ ] List any releases for the current repository along with the creator's username, timestamp and number of binary assets.
+            - [ ] Clicking the *…* button opens more specific release info and hovering over *body* expands the full text.
+        - *Git Large File Storage* (`/stafftools/repositories/[owner]/[repo_name]/large_files`)
+          - *Git LFS*
+            - [ ] Click the *Disable* button to toggle Git LFS off for the current repository.
+            - [ ] Verify the behavior is the expected.
+            - [ ] Click the *Enable* button to toggle Git LFS on for the current repository.
+            - [ ] Verify the behavior is the expected.
+            - [ ] Search by Object ID.
+          - *Danger Zone*
+            - *Purge LFS objects*
+              - [ ] Click the *Purge LFS objects* button to purge all LFS objects reachable from the current repository’s network. Modal appears asking for confirmation.
+              - [ ] Click the *Restore LFS objects* button to restore all LFS objects reachable from the current repository’s network. Modal appears asking for confirmation.
+          - *Objects*
+            - [ ] Lists any large files for the current repository.
+            - [ ] Click on any particular object and delete it.
+            - [ ] Verify the object has actually been deleted.
+            - [ ] Restore the previously deleted object.
+            - [ ] Verify the object has been restored.

@@ -1,0 +1,11 @@
+Forking
+  - [ ] Going to `http(s)://[hostname]/[username]/[repo-name]/fork` present a "Where should we fork this repository?" page
+  - When you do not belong to any orgs
+    - [ ] Clicking the *Fork* button in the UI on a repo page automatically forks the repo
+  - When you belong to an org
+    - Clicking the *Fork* button in the UI
+      - "Where should we fork this repository?"
+        - [ ] Opens in a modal
+        - [ ] Close the modal by clicking the *'X'*
+        - [ ] Fork repo to an org
+  - [ ] Fork a repo to a personal account

@@ -1,0 +1,21 @@
+Repo creation `http(s)://[hostname]/repositories/new`
+  - 'Owner' switcher
+    - [ ] Displays username and avatar
+    - With insufficient permission for an org
+      - [ ] Org name and avatar is greyed out with "insufficient permission" warning in the switcher
+      - [ ] Clicking on an org prompts the "You don't appear to have permission to create repositories for this organization. Sorry about that." warning
+  - 'Repository name' field
+    - [ ] Spaces are replaced by hyphens and a "Will be created as…" warning is displayed
+    - Name conflicts
+      - [ ] "Name already exists on this account" warning is displayed
+      - [ ] 'Repository name' heading is highlighted red
+    - [ ] Autofill by clicking on the 'Need inspiration? How about…' suggestion
+  - 'Description' field
+    - [ ] Add a description
+    - [ ] Create a repo without a description
+  - [ ] Create a Internal repo
+  - [ ] Create a private repo
+  - [ ] Initialize a repo with a README
+  - Initializing with a .gitignore
+    - [ ] Filter for a .gitignore and create a repo with it
+    - [ ] Select 'None' and create a repo without a .gitignore

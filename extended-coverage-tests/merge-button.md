@@ -1,0 +1,29 @@
+Merge Commits
+
+- Merge Button settings (http(s)://[hostname]...my-repo/settings)
+  - [ ] Repo admin can enable any combo: `Allow merge commits`, `Allow squash merging`, `Allow rebase merging`
+  - [ ] If setting is disabled, option is greyed out in the PR
+  - Pull Request Merge options
+    - [ ] Clicking `options` includes: create/squash/rebase; and branch update options: update with merge/update with rebase. (Defaults are `Create merge commit` and `Update with merge commit`. 
+    - [ ] If all settings enabled by admin, all options as clickable
+      - Merge pull request
+      - `Allow merge commits` enabled  
+        - [ ] User can select `Create merge commit` radio
+        - [ ] Upon merge, commit confirmation shown in timeline
+          - [ ] All commits from the branch will be added to the base branch via a merge commit
+      - `Allow squash merging` enabled
+        - [ ] User can select `Squash and merge` radio
+        - [ ] Upon merge, commit confirmation shown in timeline
+          - [ ] All commits from the branch will be added to the base branch
+      - `Allow rebase merging` enabled
+        - [ ] User can select `Rebase and merge` radio
+        - [ ] Upon merge, commit confirmation shown in timeline
+          - [ ] All commits from the branch will be rebased and added to the base branch
+      -  `Update branch via merge` button
+        - [ ] User can click button if branch out-of-date
+        - `Update with merge commit` option
+          - [ ] User can  select `Update with merge commit` radio
+            - [ ] All commits from the base branch will be added to the head branch via a merge commit (if branch out-of-date)
+        - `Update with rebase` option
+          - [ ] User can  select `Update with rebase` radio
+            - [ ] The head branch will be rebased on top of the latest commit of the base branch (if branch out-of-date)

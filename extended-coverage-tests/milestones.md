@@ -1,0 +1,11 @@
+Milestones
+  - Add a PR to a new/open/closed milestone {…}
+  - Creating a new milestone
+    - [ ] Create a new milestone
+    - [ ] Add an existing issue to the newly created milestone
+  - Interacting with milestones
+    - [ ] Close a milestone
+    - [ ] Delete a milestone
+  - Visit a Milestone (http(s)://[your-ghe-host]/[my-repo]/milestone)
+    - [ ] Open Milestone with < 500 items
+      - [ ] Drag/drop Issue or PR to prioritize

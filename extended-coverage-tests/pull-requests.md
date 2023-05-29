@@ -1,0 +1,59 @@
+Pull requests
+  - When changes have been made to a recent branch the light-yellow "Your recently pushed branches:" box appears on the main repo page
+      - [ ] Branch name is listed and clicking it switches the branch
+      - [ ] Timestamp
+      - [ ] *Compare & pull request* button goes to (`http(s)://[hostname]/[user or org]/[repo name]/compare/[branch name]?expand=`)
+  - 'Compare' page (`http(s)://[hostname]/[user or org]/[repo name]/compare/`)
+    - Branch/fork switcher box
+      - [ ] Switch a 'base' branch
+      - [ ] Switch a 'compare' branch
+      - [ ] "There isn't anything to compare." warning branches are up-to-date with each other
+      - [ ] Click the *compare across forks.* link
+      - [ ] Switch a 'base' fork
+      - [ ] Switch a 'head' branch
+    - "Discuss and review the changes in this comparison with others." box
+      - [ ] *Create pull request* button is disabled until a valid compare is chosen
+      - [ ] `*?*` button goes to PR help docs
+      - [ ] Click *Create pull request* to go to `http(s)://[hostname]/[user or org]/[repo name]/compare/[base branch]…[compare branch]`
+  - Creating a Pull Request
+    - From a fork
+      - [ ] Submit a PR from `master` on a fork
+      - [ ] Submit a PR from a branch on a fork
+      - Viewing an open PR
+        - 'Conversation' tab
+          - [ ] "Only those with write access to this repository can merge pull requests." is displayed when you don't have write access
+          - [ ] *write access* text link goes to permissions help docs
+      - Viewing a merged PR (merge the PR with a user who has write access first)
+        - [ ] Click on the *Revert* button and ensure a new branch is created on your fork to request a PR from
+    - From a branch in the same repo
+      - [ ] The optional extended descriptions from a commit is added as the first PR comment
+      - Viewing an open PR
+        - 'Commits' tab
+          - [ ] New commits are added to the list
+          - Commit cells
+            - [ ] Extended description can be viewed but clicking on the *'…'* (ellipsis) button
+            - [ ] Avatar, commit message, username and timestamp are displayed
+            - [ ] Copy the full SHA by clicking on the *'clipboard'* button
+            - [ ] View the commit diff by clicking on the *[short SHA]* button
+            - [ ] View the code at this point in the history by clicking on the *'angle-brackets'* button
+        - 'Files changed' tab
+          - [ ] Add a line note and sure that it is added to the 'Conversation' tab as well
+        - 'Conversation' tab
+          - [ ] Comment on a PR and ensure that it's added to the conversation timeline
+          - [ ] Close a PR
+          - [ ] Reopen a PR
+          - [ ] *'Desktop icon'* button checks out the branch in GitHub for [OS]
+          - When there is a conflict
+            - [ ] "This branch has conflicts that must be resolved. Use the command line to resolve conflicts before continuing." is displayed
+            - [ ] *Use the command line* text link opens the command line help box underneath
+            - [ ] The *Merge pull request* button is disabled
+          - When an automatic merge can be performed
+            - [ ] "This pull request can be automatically merged. You can also merge branches on the command line." is displayed
+            - [ ] *command line* text link opens the command line help box underneath
+            - Click the *Merge pull request* button to open the 'confirm merge' box
+              - [ ] Click the *Cancel* button to close the box
+              - [ ] Change the extended description and click the *Confirm merge* button
+          - Viewing a merged PR
+            - [ ] Click on the *Revert* button to open a new PR
+            - [ ] Delete the branch
+            - [ ] Restore a deleted branch

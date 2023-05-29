@@ -1,0 +1,13 @@
+User Bios
+ - Public Profile Edit Button
+    - [ ] User can save text, emoji and @-mentions in bio section and displays on the profile
+    - [ ] A 'Location' can be saved and displays on the profile
+    - [ ] An already-saved email can be selected to be shown and displays on the profile
+    - [ ] A 'URL' can be saved and displays on the profile
+ - Personal settings -> Profile page (`/settings/profile`)
+    - [ ] A 'Name' can be added and displays on the profile
+    - [ ] A 'Public email' can be selected and displays on the profile
+    - [ ] A selected 'Public email' can be cleared and no email is displayed on the profile
+    - [ ] User can save text, emoji and @-mentions in 'Bio' section and it displays on the profile
+    - [ ] A 'URL' can be saved and displays on the profile
+    - [ ] A 'Location' can be saved and displays on the profile

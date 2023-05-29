@@ -1,0 +1,31 @@
+# Protected Branches
+  - Enabling protected branches on a repo (`owner/repository/settings/branches`, requires admin privileges to the repo). See [the protected-branches.md info page](https://github.com/github/pe-releases/blob/master/qa/ghes-manifests/docs/protected-branches.md) for information about setting statuses.
+    - When you don't have any protected branches
+      - [ ] Blankslate says "No protected branches yet."
+    - Protecting a branch
+      - [ ] Filter for a branch in the "Choose a branch…" menu
+      - [ ] Select a branch from the menu
+      - [ ] Land on 'owner/repository/settings/branch'
+      - [ ] Check "Protect this branch" checkbox
+      - If there are status checks
+        - [ ] Click "Require status checks to pass before merging"
+        - [ ] Status checks can be set to required by clicking the checkbox
+      - If there are no status checks
+        - [ ] No status checks are shown
+      - [ ] Click the "Save changes" button
+  - Pushing to a protected branch (requires write privileges to the repo)
+    - [ ] When you force push to any protected branch from command line
+    - [ ] When you push to a protected branch without required statuses from command line or native application
+    - [ ] you push to a protected branch with required statuses from command line or native application
+    - [ ] When you push to a protected branch with required statuses from the web flow
+  - Merging Pull Requests into a protected branch (requires write privileges to the repo)
+    - When merging to a protected branch with required statuses
+      - [ ] Statuses that are required have a required badge in the Merge Area
+      - [ ] The "Merge" button is disabled if a required status isn't successful
+      - [ ] The "Update Branch" button is clickable and the Merge Button is disabled when the HEAD branch is behind the base branch
+      - [ ] The "Merge" button is disabled if HEAD is not up to date with the base branch
+      - [ ] The "Update Branch" button is disabled when HEAD is up to date with the base branch
+      - [ ] The "Merge" button is clickable when HEAD is up to date with the base branch and all required statuses are passing
+  - If admin override is enabled on 'owner/repository/settings/branches' (requires admin privilege to enable and use)
+    - [ ] The "Merge" button is enabled even if a required status is failing
+    - [ ] Force push is still disabled

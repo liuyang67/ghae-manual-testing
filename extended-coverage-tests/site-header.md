@@ -1,0 +1,46 @@
+The site header
+  - 'The Mark' octicon
+    - [ ] Rollover state goes gray
+    - [ ] Always takes you to `http(s)://[hostname]`
+  - Search bar
+    - [ ] Ensure that searching from the titlebar goes to `http(s)://[hostname]//search?q=[query]`
+  - Pull requests
+    - [ ] Rollover state goes grey
+    - [ ] Goes to `http(s)://[hostname]/pulls`
+  - Issues
+    - [ ] Rollover state goes grey
+    - [ ] Goes to `http(s)://[hostname]/issues`
+  - Notifications 'bell' icon
+    - With unread notifications
+      - [ ] "You have unread notification in this repository" tooltip displays on rollover
+      - [ ] Blue dot over the 'bell'
+    - With no notifications
+      - [ ] "You have no unread notifications" tooltip displays on rollover
+      - [ ] No blue dot
+    - [ ] Unchecking 'Participating: Web', 'Watching: Web' and 'Security alerts: Web' in `/settings/notifications` removes the bell icon from the titlebar
+  - 'Create new' icon
+    - [ ] Rollover state goes white
+    - [ ] "Create new" tooltip displays on rollover
+    - [ ] Clicking opens the 'Create new' popover
+    - Popover actions
+      - User account actions
+        - [ ] *New repository* goes to `http(s)://[hostname]/new`
+        - [ ] *New gist* goes to `http(s)://gist.[hostname]` (or `http(s)://[hostname]/gist` without subdomain isolation enabled
+        - [ ] *New organization* goes to `http(s)://[hostname]/organizations/new`
+        - [ ] *New project* goes to `http(s)://[hostname]/new/project`
+  - [username] link
+    - [ ] Avatar is displayed
+    - [ ] Rollover state for the *down arrow* icon goes grey
+    - [ ] "View profile and more" tooltip displays on rollover
+    - [ ] Clicking opens the 'profile and more' popover
+    - The 'profile and more' popover
+      - [ ] Ensure that the username is listed as signed in
+      - [ ] Ensure that the set status is shown
+      - [ ] *Your profile* goes to `http(s)://[hostname]/[username]]`
+      - [ ] *Your repositories* goes to `http(s)://[hostname]/[username]tab?repositories`
+      - [ ] *Your projects* goes to `http(s)://[hostname]/[username]tab?projects`
+      - [ ] *Your stars* goes to `http(s)://[hostname]/[username]tab?stars`
+      - [ ] *Your gists* goes to `http(s)://gist.[hostname]/mine`
+      - [ ] *Help* goes to `https://help.github.com/enterprise/[version]/user`
+      - [ ] *Settings* goes to `http(s)://[hostname]/settings/profile`
+      - [ ] *Sign out* signs the user out

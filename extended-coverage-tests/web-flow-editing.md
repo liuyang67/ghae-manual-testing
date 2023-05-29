@@ -1,0 +1,147 @@
+Web-flow editing
+  - An empty repo
+    - 'Quick setup' box
+      - [ ] *Set up in Desktop* button launches the desktop client
+      - Switch between HTTP and SSH
+        - [ ] URL changes within the 'Quick setup' box
+        - [ ] URL changes in both `git remote add origin` instructions
+      - [ ] Copy URL to the clipboard using the 'Copy to clipboard' button
+      - 'We recommend every repository include a README, LICENSE, and .gitignore.'
+        - [ ] *README* link opens the edit file view with `/README.md` pre-populated and the repo name added as a header
+        - [ ] *LICENSE* link opens the edit file view with `/LICENSE.md` pre-populated
+        - [ ] *.gitignore* link opens the edit file view with `/gitignore` pre-populated and the template picker currently set to `None`
+  - A populated repo
+    - Without a README file
+      - Private repo
+        - [ ] "Add a README with an overview of your project." warning is displayed with a *Add a README* button
+    - With a README file present
+      - [ ] README renders on the main repo page
+    - [ ] Edit and save a repo description
+    - [ ] Cancel a description edit
+    - Add a website link
+      - [ ] The 'http(s)://' prefix is added to addresses that are submitted without it (note that this is invalid on Chrome)
+    - Branch switcher
+      - Branches
+        - [ ] Create a new branch name
+        - [ ] Find and select an existing branch name
+      - Tags
+        - [ ] Find and select an existing tag
+    - [ ] *'Pull request icon'* button goes to `http(s)://[hostname]/[user or org name]/[repo name]/compare`
+    - Create a new file or folder (the 'New file' button)
+      - [ ] "Create a new file here" tooltip on hover
+      - [ ] Goes to New file view
+    - New file view (`http(s)://[hostname]/[user or org name]/[repo name]/new/[branch]`)
+      - The breadcrumb
+        - [ ] Hit the *cancel* link to return to the main repo page
+        - [ ] Create nested folders by entering a name and hitting `/`
+        - [ ] Type `../` to move up a directory level
+        - [ ] Press `backspace` to move up a directory and ensure that the parent folder’s name is maintained
+        - [ ] Add a file name with an extension (i.e. `.md`)
+      - The text input area
+        - [ ] 'New file' is displayed in the header
+        - [ ] Add some text
+      - The 'Commit new file' area
+        - [ ] Hit the *Cancel* button to return to the main repo page
+        - Committing a new file
+          - [ ] Placeholder commit is 'Create [file name]'
+          - To the existing branch
+            - [ ] 'Commit directly to the ___ branch' is preselected
+            - [ ] Click the *Commit new file* button without adding a custom commit message ('Create [file name]')
+            - [ ] Add your own commit message and optional description and click the *Commit new file* button
+          - Create a quick pull request
+            - [ ] Choose 'Create a new branch for this commit and start a pull request'
+            - With the default branch
+              - [ ] A branch name has been suggested, and the branch does not exist in this repository
+              - [ ] Click "Propose new file"
+              - Verify that:
+                - [ ] You are now looking at the "compare" page
+                - [ ] That it shows your commit
+                - [ ] That creating a pull request on this page creates a pull request
+            - With a custom branch
+              - [ ] Choose a branch name that does not already exist
+              - [ ] Click "Propose new file"
+              - Verify that:
+                - [ ] You are now looking at the "compare" page
+                - [ ] That it shows your commit
+                - [ ] That creating a pull request on this page creates a pull request
+    - Directory browsing
+      - [ ] View a file blob by clicking on the file name
+      - [ ] View a nested folder by clicking on it
+      - [ ] Ensure that READMEs located within a nested folder render at the nested folder level
+      - The file finder
+        - Activating the file finder (`http(s)://[hostname]/[user or org]/[repo name]/find/[branch]`)
+          - [ ] Hit `t`
+          - [ ] Click the *'unordered list icon'* button above the file list
+        - [ ] Dismiss the "You've activated the file finder…" tip (forever)
+        - [ ] Filter by typing a file name
+        - [ ] Use ↑ and ↓ to navigate and hit enter to view a file
+    - Viewing a file blob (http(s)://[hostname]/[user or org]/[repo name]/blob/[branch]/[file name])
+      - 'Last commit' header
+        - [ ] The latest contributor is listed with the timestamp and commit message
+        - Contributors
+          - [ ] Clicking on the *contributor(s)* link open the "Users who have contributed to this file" modal
+          - [ ] Contributor avatars are displayed with their username
+      - File data
+        - [ ] Number of lines
+        - [ ] File size
+      - View types
+        - [ ] Normal view
+        - [ ] Blame view
+        - [ ] Raw view
+        - [ ] History view
+      - *'Desktop icon'* button
+        - [ ] Prompts cloning the repo if it isn't already added to Desktop
+        - [ ] Opens the repo in Desktop and the file in the Finder if already added to Desktop
+      - [ ] Click the *'Pen icon'* edit button to enter the edit file view
+      - [ ] Click the *'Trash icon'* delete button to enter the delete file view
+    - Edit file (`http(s)://[hostname]/[user or org]/[repo name]/edit/[branch]/[file name]`)
+      - Code tab
+        - [ ] Make a change
+      - Preview tab
+        - [ ] Ensure that diffs render
+      - [ ] Placeholder commit is 'Update [file name]'
+      - [ ] Click the *Commit changes* button to update the file
+      - To the existing branch
+        - [ ] 'Commit directly to the ___ branch' is preselected
+        - [ ] Click the *Commit changes* button without adding a custom commit message ('Update [file name]')
+        - [ ] Add your own commit message and optional description and click the *Commit changes* button
+      - Create a quick pull request
+        - [ ] Choose 'Create a new branch for this commit and start a pull request'
+        - With the default branch
+          - [ ] A branch name has been suggested, and the branch does not exist in this repository
+          - [ ] Click "Propose new file"
+          - Verify that:
+            - [ ] You are now looking at the "compare" page
+            - [ ] That it shows your commit
+            - [ ] That creating a pull request on this page creates a pull request
+        - With a custom branch
+          - [ ] Choose a branch name that does not already exist
+          - [ ] Click "Propose new file"
+          - Verify that:
+            - [ ] You are now looking at the "compare" page
+            - [ ] That it shows your commit
+            - [ ] That creating a pull request on this page creates a pull request
+    - Delete file
+      - [ ] Diff is displayed with all lines deleted
+      - [ ] Placeholder commit is 'Delete [file name]'
+      - [ ] Click the *Commit changes* button to update the file
+      - To the existing branch
+        - [ ] 'Commit directly to the ___ branch' is preselected
+        - [ ] Click the *Commit changes* button without adding a custom commit message ('Delete [file name]')
+        - [ ] Add your own commit message and optional description and click the *Commit changes* button
+      - Create a quick pull request
+        - [ ] Choose 'Create a new branch for this commit and start a pull request'
+        - With the default branch
+          - [ ] A branch name has been suggested, and the branch does not exist in this repository
+          - [ ] Click "Propose new file"
+          - Verify that:
+            - [ ] You are now looking at the "compare" page
+            - [ ] That it shows your commit
+            - [ ] That creating a pull request on this page creates a pull request
+        - With a custom branch
+          - [ ] Choose a branch name that does not already exist
+          - [ ] Click "Propose new file"
+          - Verify that:
+            - [ ] You are now looking at the "compare" page
+            - [ ] That it shows your commit
+            - [ ] That creating a pull request on this page creates a pull request

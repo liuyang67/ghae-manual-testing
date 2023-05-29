@@ -1,0 +1,65 @@
+- User profile (`http(s)://[hostname]/[user name]`)
+  - Viewing your own profile
+    - [ ] When a user profile is yet to be edited the 'Pro tip: updating your profile…' banner is displayed and the *Edit profile* button goes to `http(s)://[hostname]/account/`
+    - [ ] Hovering over the avatar displays the 'Change your avatar' tooltip and clicking on it goes to `http(s)://[hostname]/account/`
+  - Viewing someone else's profile
+    - [ ] Clicking on the avatar displays it in it's own browser window
+    - [ ] Click the *Follow* button and ensure that they are now shown in `http(s)://[hostname]/[signed in user]/following`
+  - [ ] Username and 'Joined on' date are displayed under the avatar
+  - [ ] 'Followers' count goes to `http(s)://[hostname]/[user]/followers`
+  - [ ] 'Starred' count goes to `http(s)://[hostname]/stars`
+  - [ ] 'Following' count goes to `http(s)://[hostname]/[user]/following`
+  - Contributions tab
+    - [ ] 'Popular repositories' are displayed with the star count
+    - [ ] Private contributions are displayed when viewing a different user who has access to the same private repos and the 'lock' icon is shown in the corner of the graph
+    - [ ] Public contributions are displayed when viewing a different user who shares no access and the 'lock' icon is removed
+    - [ ] 'Contributions in the last year', 'Longest streak' and 'Current streak' info is all displayed
+    - [ ] 'Contribution activity' can be filtered to different time periods
+    - [ ] Commits are displayed and go to their specific commit view
+    - [ ] Clicking on a day in the graph loads that day's commits
+  - Repositories tab
+    - Viewing your own profile
+      - [ ] Click the *Private* and *Internal* text links to filter by Private and internal repos
+      - [ ] Click the *New* button to go to `http(s)://[hostname]/new`
+    - Viewing someone else's profile
+      - [ ] Start typing in the search box to filter repos
+      - [ ] Click *Search* to open a search query
+      - [ ] Filter by *All*, *Sources* and *Forks* text links
+      - [ ] Listed repos display the timestamp, forks, stars and the name can be clicked on to go to view the repo's page
+  - Public activity
+    - [ ] Public activity items are listed with timestamps and links to usernames, branches, and repos
+    - [ ] Follow a user's activity (RSS) feed
+  - Change Profile Picture at `http(s)://[hostname]/settings/profile`
+    - With drag and drop
+      - [ ] Drag an image in
+      - [ ] Tweak crop box and save
+      - [ ] Confirm avatar changes.  View profile in new incognito window to confirm it updates.
+    - With file selector dialog
+      - [ ] Use the *…selecting them* link
+      - [ ] Tweak crop box and save
+      - [ ] Confirm avatar changes.  View profile in new incognito window to confirm it updates.
+  - [ ] Make a commit to a repo with an email that is not associated with the instance and ensure that the placeholder avatar is displayed on the commit page
+- Personal settings → Account (`https://[hostname]/settings/admin`)
+  - [ ] Click the 'Change username' button and confirm a warning modal displays, that can be cancelled or acknowledged
+  - [ ] Continuing through to change the username works and the UI updates with references to the new username
+  - [ ] Trying to visit `https://[hostname]/[previous-username]` throws a 404
+- Personal settings → Emails (`http(s)://[hostname]/settings/emails`)
+  - [ ] Try to add an invalid email address and ensure it fails
+  - [ ] Add a valid email address
+  - [ ] When more than one email address exists, confirm an address can be removed
+  - [ ] When only one email is present, it cannot be deleted
+  - [ ] With multiple email addresses, toggle which one is the 'primary' address
+- Personal settings → SSH & GPG keys (`http(s)://[hostname]/settings/keys`)
+  - Adding SSH key
+    - [ ] User can add valid SSH key(s)
+    - [ ] User can view and delete any SSH key(s)
+  - Adding GPG key
+    - [ ] User can add valid GPG key(s)
+    - [ ] User can view and delete any GPG key(s)
+  - GPG verification
+    - [ ] If key valid, `Verified` badge is visible with each commit
+    - [ ] Click badge to verify user info and key ID
+  - Personal settings → Organizations (`http(s)://[hostname]/settings/organizations`)
+    - [ ] Any orgs that the user belongs to are shown
+    - [ ] When the user is a member of one or more orgs, the 'Turn [user] into an organization' button is disabled
+    - [ ] When the user does not belong to any orgs, clicking the 'Turn [user] into an organization' button displays a warning modal and successfully converts the account

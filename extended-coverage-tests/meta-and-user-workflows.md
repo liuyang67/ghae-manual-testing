@@ -1,0 +1,15 @@
+Meta and user workflows
+  - Notifications (`@mentions`)
+    - [ ] `@mention` another user in an issue and check if the user got a notification (web,email)
+    - [ ] `@mention` a team in an issue and check if the team's members got a notification (web,email)
+  - Stars
+    - [ ] Star a repository, browse to `http(s)://[hostname]/stars` and check if it shows up in the list
+  - Activity Dashboard
+    - [ ] Create a Repository, browse to `http(s)://[hostname]/dashboards/overview` and check if it shows up in graph
+    - [ ] Create a User, browse to `http(s)://[hostname]/dashboards/overview` and check if it shows up in graph
+    - [ ] Create an Organization, browse to `http(s)://[hostname]/dashboards/overview` and check if it shows up in graph
+    - [ ] Create a Team, browse to `http(s)://[hostname]/dashboards/overview` and check if it shows up in graph
+    - [ ] Create a Pull Request, merge it, browse to `http(s)://[hostname]/dashboards/overview` and check if both actions show up in graph
+    - [ ] Create an Issue, close it, browse to `http(s)://[hostname]/dashboards/overview` and check if both actions show up in graph
+    - [ ] Create a comment on an issue, browse to `http(s)://[hostname]/dashboards/overview` and check if it shows up in graph
+    - [ ] Confirm above activities show up in Month and Year views

@@ -1,0 +1,90 @@
+Issues
+  - With no Issues present
+    - [ ] "Welcome to Issues!" is displayed with a description and a *create an issue* link
+  - Creating a new Issue (`http(s)://[hostname]/[user or org]/[repo name]/issues/new`)
+    - [ ] Add a title
+    - Assigning switcher
+      - [ ] Select an assignee and ensure that they are assigned
+      - [ ] Click *Clear assignee* to go back to "No one will be assigned"
+      - [ ] When attempting to assign an issue to a suspended user, nothing happens
+      - [ ] When attempting to assign an issue to a non-existent user, nothing happens
+    - Milestone switcher
+      - [ ] Select a closed Milestone
+      - [ ] Clear the Milestone
+    - [ ] *Markdown supported* link goes to Markdown guide
+    - [ ] Add a label
+    - [ ] Click *Submit new issue* with just a title (no comment) and ensure that the submitted issue displays "No description provided."
+    - The comment area
+      - Comments toolbar
+        - Markdown
+          - On a string of 3 words, place the cursor within the middle of the middle word (no whitespace. This serves to highlight the word)
+            - [ ] *Header* icon opens header popover and adding a header prefixes the word `# ` (or `## ` or `### ` depending on the header-level)
+            - [ ] *Bold* icon and cmd+b inserts `**` on either side of the word
+            - [ ] *Italic* icon and cmd+i inserts `_` on either side of the word
+            - [ ] *Quote* places each of the 3 words on their own line, separated by hard-returns and the middle word is now prefixed by `> `
+            - *Link* and cmd+k
+              - [ ] Keeps all 3 words inline
+              - [ ] Wraps the middle word in `[]`
+              - [ ] Suffixes `]` with `(url)` and leaves `url` highlighted
+            - [ ] *Code* icon inserts back-ticks on either side of the word
+          - Create 3 separate lines of text but only highlight the first two
+            - [ ] *Code* icon adds 3 back-ticks above and below the highlighted lines
+            - [ ] *Bulleted* icon prefixes `- ` to the first two lines and pushes the third line under a hard-return
+            - [ ] *Numbered* icon prefixes sequential numbers to the first two lines and pushes the third line under a hard-return
+            - [ ] *Task list* icon prefixes `- [ ]` to the first two lines and pushes the third line under a hard-return
+          - Removing markdown
+            - [ ] Highlight a word and click each markdown icon twice and ensure that markdown syntax is removed on the second click (Note: '*Link*' will add another link to `URL` and any inserted line-breaks are not rolled-back)
+        - Mentions
+          - [ ] *Mentions* icon inserts a `@` and opens the direct mentions search-box
+        - Issue/PR reference
+          - [ ] *Issue/PR reference* icon inserts a `#` and opens the unique ID search-box
+        - [ ] Ensure that all icons in the comments toolbar have corresponding tooltips on hover
+      - [ ] Preview a comment and ensure that all markdown renders
+      - [ ] Click *Comment* to post a comment and make sure that all markdown renders
+      - Emoji reactions
+        - Logged in
+          - On an unlocked issue comment
+            - Reacting to someone else's comment
+              - [ ] Hovering over the reaction icon displays the *Add your reaction* tooltip
+              - [ ] Clicking the reaction icon opens the *Pick your reaction* popover
+              - [ ] Close the *Pick your reaction* popover by clicking off it
+              - Adding a first reaction
+                - [ ] Hovering over reactions in the popover triggers a size-increase animation and describes the name
+                - [ ] Adding a first reaction adds it to the bottom of the comment
+                - [ ] Hovering over the first reaction displays your username in a tooltip
+                - [ ] Hovering over the reaction display-area triggers a *Add your reaction* icon next to your first reaction
+                - [ ] Clicking on your first reaction (when there are no other reactions to a comment) removes the reaction
+              - Adding additional reactions
+                - [ ] Clicking on the *Add your reaction* icon next to a reaction in the reaction display-area opens the popover at this point and an additional reaction can be added
+                - [ ] Clicking a reaction to the left of other reactions removes it and shunts the other reactions down the line
+                - [ ] 'Adding' a reaction that has already been added to a comment removes the existing instance of it
+            - Clicking on a reaction made by someone else
+              - [ ] Bumps the number by one
+              - [ ] Displays your username in tooltip in addition to the other person
+              - [ ] Clicking on it again bumps the number back down and removes your name from the tooltip
+          - On a locked issue comment
+            - [ ] The reactions icon is removed from both the top and bottom of a comment
+            - [ ] An existing reaction still displays usernames on hover, but clicking it does nothing
+        - Logged out
+          - [ ] Previous reactions can be viewed and usernames appear on hover
+          - [ ] Clicking on a previous reaction doesn't remove it
+          - [ ] The *Add reactions* icon is removed from both the top and bottom (on hover) of a comment
+      - Attach an image
+        - [ ] Drag an image in
+        - [ ] Use the *…selecting them* link
+  - Existing issues
+    - With write access
+      - [ ] Edit an issue's title
+      - [ ] Edit another user's comment
+      - [ ] Remove another user's comment
+      - [ ] Lock an issue
+      - [ ] Unlock an issue
+      - [ ] Search and select a new label
+      - [ ] Remove and existing label
+      - [ ] Change an existing Milestone
+      - [ ] Change the assignee
+    - With read only access
+      - [ ] Subscribe to an issue
+      - [ ] Add a comment and submit it
+      - [ ] Edit a comment which you made
+      - [ ] Remove a comment which you made

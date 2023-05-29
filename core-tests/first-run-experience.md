@@ -1,0 +1,51 @@
+This document is adapted from [GHES First-run-experience test plan](https://github.com/github/pe-releases/blob/master/qa/ghes-manifests/corehub/first-run-experience.md).
+# First run experience
+  - As an Admin
+    - Initial settings configuration (`http(s)://[hostname]/setup/settings`)
+      - Create an organization (`http(s)://[hostname]/account/organizations/new`)
+        - After adding an *Organization name*:
+          - [ ] Ensure the *Your URL will be: http(s)://[hostname]/[org]* message updates with the organization name.
+          - [ ] Clicking *Next* progresses to the *Welcome to GitHub* page (`http(s)://[hostname]/organizations/[org]/invite]`), where new members can be invited.
+        - *Invite team members*
+          - [ ] Ensure that the admin account has already been added as an owner.
+          - [ ] Click *Complete setup*. You should be redirected to http(s)://[hostname]/[org].
+    - The staffbar
+      - [ ] Displays by default & can be toggled on/off by hitting the backtick on the keyboard.
+      - [ ] Short SHA of build is displayed on "Site admin mode" rollover.
+      - Site Admin rocket icon
+        - [ ] Rollover state goes white.
+        - [ ] *Site admin* tooltip displays on rollover.
+        - [ ] Clicking the icon goes to `http(s)://[hostname]/stafftools`.
+      - After tapping backtick while viewing the `Site Admin` (`/stafftools`) page:
+        - [ ] The staffbar is removed.
+        - [ ] Hitting refresh displays a 404 page (as stafftools access is disabled).
+        - [ ] Tapping backtick makes the staffbar reappear.
+        - [ ] Hitting refresh displays the page correctly (as stafftools access is enabled).
+  - As an end user (email needs to be enabled in `/setup/settings` first)
+    - Email sign-up flow
+      - [ ] An email invite is received, the link in the message redirects to the proper page and asks for a new password to be set.
+      - Sign in for the first time with an invite:
+        - [ ] Using the email address and password string.
+        - [ ] Using the username and password string.
+    - [ ] Create an account as an end user. **NOTE**: For this to work the **Enable sign-up** option in `http(s)://[hostname]/setup/settings` should be enabled.
+    - [ ] Verify adding an SSH key and that you receive an email with outbound email configured.
+    - The Dashboard
+      - When user has no repos
+        - The *Learn Git and GitHub…* banner appears:
+          - [ ] The *Read the guide* button takes you to `guides.github.com/activities/hello-world`.
+          - [ ] The *Start a project* button takes you to `http(s)://[hostname]/new`.
+          - [ ] The banner cannot be hidden/removed.
+      - When user has created or has access to repo(s)
+        - [ ] The banner can be hidden/removed.
+        - Before user has any news feed items
+          - [ ] *Discover interesting projects* box is present with links to *watch* (`/trending`), *follow* (`/trending/developers`) and a *Explore GitHub* button (`/explore`).
+        - *Repositories* list
+          - [ ] The total number of available repositories displays personal repos as well as collaborated repos.
+          - [ ] Collaborated repos display with the `[username]/` prefix.
+          - [ ] The *New* button goes to `http(s)://[hostname]/new`.
+          - [ ] The *Find a repository…* search field does search for repositories. **NOTE**: The search is performed against your very own repos and those you're collaborating to, which means, this just filters the list of repos you have already in place.
+          - With at least 8 repos in the list
+            - [ ] Refresh `http(s)://[hostname]/` and ensure that the *Show more* link is displayed.
+            - [ ] Clicking on *Show more repositories…* expands to show all repos.
+        - *All Activity on GitHub Enterprise*
+          - [ ] `/dashboards/overview` renders activity graphs and matches expected *Pull Requests*, *Issues*, *Issue Comments*, *Repositories*, *Users*, *Organizations* and *Teams* counts.

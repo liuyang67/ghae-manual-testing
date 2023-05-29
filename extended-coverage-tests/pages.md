@@ -1,0 +1,23 @@
+- With `Enable subdomains` checked in `http(s)://[hostname]setup/settings` (you'll need to append `xip.io` to your hostname because of the [subdomain dependacies](https://github.com/github/help-docs/blob/enterprise-2.0/enterprise/2.0/admin/implementation-guide/index.md#subdomains))
+  - Pages
+    - 'GitHub Pages' section under the Options tab (`http(s)://[hostname]/[user or org]/[repo name]/settings`)
+      - [ ] Ensure that "Caution: This repository is private but the published site will be public." warning is shown on private repos
+      - [ ] Ensure that "Your site is published at…" warning is shown when there is a `gh-pages` branch
+    - Automatic page generator
+      - [ ] Click the *Automatic page generator* button under the 'GitHub Pages' section to go to the generator
+      - The editor (`http(s)://[hostname]/[user or org]/[repo name]/generated_pages/new`)
+        - [ ] 'Project name' is pre-filled with the repo name and can be changed
+        - [ ] 'Tagline' is pre-filled with the repo description and can be changed
+        - [ ] 'Body' is pre-filled with "Welcome to GitHub Page" help markdown text
+        - [ ] Click the `*?*` button to open/close the markdown help box
+        - [ ] Click the *Load README* button to change the body to the contents of the README and then click the *Undo* button to switch it back
+        - [ ] Click the *Continue to layouts* button to go to theme selection
+      - Theme selector (`http(s)://[hostname]/[user or org]/[repo name]/generated_pages/themes`)
+        - [ ] Select a different theme
+        - [ ] Hide/Show thumbnails
+        - [ ] Click the *Edit* button to return back to the editor
+        - [ ] Clicking *Publish page* and ensure that you go back to the main repo page with a "Your project page has been created at…" notice
+      - [ ] Ensure that a publish page can be viewed
+    - [ ] Trigger a failed Pages build and ensure that you get a notification email (https://github.com/github/pe-releases/blob/master/qa/ghes-manifests/docs/break-pages.md)
+    - [ ] Disable Pages in `/setup/settings#pages`, ensure that the the 'GitHub Pages' section is removed from `http(s)://[hostname]/[user or org]/[repo]/settings` and check that a previously published Pages site is not accessible
+

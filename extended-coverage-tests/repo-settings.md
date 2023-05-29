@@ -1,0 +1,60 @@
+Repo settings (`http(s)://[hostname]/[user or org]/[repo name]/settings`)
+  - 'Options' tab
+    - Settings area
+      - [ ] Rename a repo
+      - [ ] Social Preview
+      - [ ] Change the default branch
+    - Features area
+      - [ ] Disable/re-enable Wikis
+      - [ ] Disable/re-enable Restrict editing users in teams with push access
+      - [ ] Disable/re-enable Issues
+      - [ ] Disable/re-enable Projects
+   - Merge button
+      - [ ] Disable/re-enable Allow merge commits
+      - [ ] Disable/re-enable Allow squash merging
+      - [ ] Disable/re-enable Allow rebase merging
+      - [ ] Disable/re-enable Automatically delete head branches
+  - GitHub Pages
+      - [ ] Select/unselect Source
+      - [ ] Launch automatic page generator
+      - [ ] Custom and Jekyll-based sites
+    - Danger zone
+      - [ ] Make a private repo Internal
+      - [ ] Make a Internal repo private
+      - Transferring repo ownership (user only, not an org)
+        - [ ] Transfer repo ownership to a valid user
+        - [ ] Attempting to Transfer repo ownership from a non-admin user to a suspended user fails
+        - [ ] Attempting to Transfer repo ownership to a non-existent user fails
+      - [ ] Delete a repo
+  - 'Collaborators' tab
+    - Search for an existing user
+      - [ ] By username, and select them
+      - [ ] By full name, and select them
+    - [ ] Search for a suspended user and ensure that they cannot be selected
+    - [ ] Search for a non-existent user and ensure that they cannot be selected
+  - 'Branches' tab
+    - Default branch area
+      - [ ] Add another branch shown when only 1 branch exists
+      - [ ] Change the default branch to the new added/other branch on the repository
+  - Branch protection rules
+    - [ ] Add a rule, after saving see the rule is present
+    - [ ] Edit the rule and save changes (test the rule on the repo after and before the change)
+    - [ ] Delete the rule
+  - 'Hooks' tab
+    - [ ] Webhooks (ideally create and test the webhook on the repo)
+    - [ ] Pre-recieve hooks (tested already on ghe-tester)
+  - 'Notificatios' tab
+    - [ ] Adding and address and get notifications
+    - [ ] Change the header and set up a mailing list, check adding the header makes it through the mailing list
+  - 'Integrations and services' tab
+    - [ ] Notification that is being deprecated
+  - 'Deploy keys' tab
+    - [ ] Add new deploy keys
+    - [ ] Show existing key and pull the repo with that deploy key
+    - [ ] *Allow write access* enable and push data to the repository
+  - 'Custom tabs'
+    - [ ] Add multiple custom tabs and ensure that they appear under a new ‘More’ tab and link correctly
+    - [ ] Remove a custom tab and ensure that it's removed from the repo sidebar
+  - 'Autolink references' tab
+    - [ ] Add a new autolink reference
+    - [ ] Show existing autolink references

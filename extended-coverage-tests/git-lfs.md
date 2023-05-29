@@ -1,0 +1,15 @@
+# Git LFS
+  - [ ] [Setup Git LFS](https://git-lfs.github.com)
+  - Upload objects
+    - [ ] Create new repository on website with README
+    - [ ] Clone repository locally with HTTPS remote
+    - [ ] Run `git lfs track "*.psd"`
+    - [ ] Add a psd file ([samples](https://github.com/github/renderables/tree/master/psds))
+    - [ ] Initialize and make the initial commit with the `.gitattributes` and PSD files.
+    - [ ] Run `GIT_TRACE=1 git push origin master` ([see tracing info](https://github.com/github/pe-releases/blob/master/qa/ghes-manifests/docs/git-media.md))
+    - [ ] Confirm PSD file is listed in the repository tree view
+    - [ ] Confirm PSD file is rendered in the repository blob view
+    - [ ] Confirm PSD is downloadable with the "Raw" button on the repository blob view
+  - Download objects
+    - [ ] Clone the above repository to a new directory ([see SSL and tracing info](https://github.com/github/pe-releases/blob/master/qa/ghes-manifests/docs/git-media.md))
+    - [ ] Confirm PSD file downloaded locally successfully.

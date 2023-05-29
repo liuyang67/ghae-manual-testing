@@ -1,0 +1,15 @@
+Drag & drop uploads
+  - In an existing repository
+    - Commit some files
+      - [ ] Drag in several files
+      - [ ] Add commit message and submit
+      - [ ] Confirm latest commit is made up of files dragged & dropped in
+    - Commit files into a sub directory
+      - [ ] Navigate to a directory in the repository
+      - [ ] Drag in a file
+      - [ ] Add commit message and submit
+      - [ ] Confirm latest commit is made up of file dragged & dropped in
+    - Commit files in a directory
+      - [ ] Drag in a directory with files in it
+      - [ ] Add commit message and submit
+      - [ ] Confirm latest commit is made up of file dragged & dropped in directory
